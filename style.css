@@ -1,0 +1,577 @@
+
+/* =========================================
+   1. CSS VARIABLES
+========================================= */
+
+:root {
+    --primary: #101d3a;
+    --secondary: #244b83;
+    --accent: #f5b51b;
+    --background: #f4f6fa;
+    --text: #222222;
+    --white: #ffffff;
+    --border: #dddddd;
+}
+
+
+/* =========================================
+   2. GENERAL STYLING
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   3. HEADER AND NAVIGATION BAR
+========================================= */
+
+header nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 65px;
+    padding: 12px 5%;
+
+    background-color: var(--primary);
+    color: var(--white);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 1000;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav h1 {
+    font-size: 25px;
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+
+/* =========================================
+   4. HERO SECTION
+========================================= */
+
+#home {
+    margin-top: 65px;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color: var(--white);
+    text-align: center;
+
+    padding: 100px 20px;
+}
+
+#home h2 {
+    font-size: 38px;
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+#home p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   5. HERO BUTTONS
+========================================= */
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-block;
+
+    background-color: var(--accent);
+    color: var(--primary);
+
+    padding: 12px 25px;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    border-radius: 6px;
+
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--white);
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   6. COMMON SECTION STYLING
+========================================= */
+
+.content-section {
+    max-width: 1250px;
+    margin: 30px auto;
+    padding: 35px;
+
+    background-color: var(--white);
+
+    border-radius: 12px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.content-section h2 {
+    color: var(--primary);
+    font-size: 27px;
+
+    border-bottom: 3px solid var(--accent);
+
+    padding-bottom: 10px;
+    margin-bottom: 22px;
+}
+
+.content-section h3 {
+    color: var(--primary);
+    margin: 18px 0 10px;
+}
+
+
+/* =========================================
+   7. ABOUT IPL SECTION
+========================================= */
+
+#about p {
+    margin-bottom: 15px;
+}
+
+#about ul {
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+#about li {
+    padding: 5px 0;
+}
+
+
+/* =========================================
+   8. TEAM FILTER
+========================================= */
+
+.filter-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 15px;
+}
+
+.filter-box label {
+    font-weight: bold;
+}
+
+.filter-box select {
+    padding: 10px 15px;
+
+    border: 1px solid var(--border);
+    border-radius: 6px;
+
+    background-color: var(--white);
+    font-size: 15px;
+}
+
+
+/* =========================================
+   9. MATCH SCHEDULE TABLE
+========================================= */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 750px;
+
+    border-collapse: collapse;
+
+    background-color: var(--white);
+}
+
+th {
+    background-color: var(--primary);
+    color: var(--white);
+
+    padding: 15px 12px;
+    text-align: center;
+}
+
+td {
+    padding: 13px 10px;
+    text-align: center;
+
+    border: 1px solid var(--border);
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f0f3f8;
+}
+
+tbody tr:hover {
+    background-color: #fff3d0;
+}
+
+
+/* =========================================
+   10. BOOK BUTTON IN TABLE
+========================================= */
+
+.book-btn {
+    display: inline-block;
+
+    background-color: var(--accent);
+    color: var(--primary);
+
+    padding: 7px 15px;
+
+    border-radius: 5px;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.book-btn:hover {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+
+/* =========================================
+   11. BOOKING SECTION
+========================================= */
+
+.booking-layout {
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 25px;
+    align-items: start;
+}
+
+
+/* =========================================
+   12. BOOKING FORM
+========================================= */
+
+form {
+    background-color: #f8f9fc;
+
+    padding: 30px;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+form h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+}
+
+form input,
+form select {
+    display: block;
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-bottom: 18px;
+
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+
+    font-size: 15px;
+
+    background-color: var(--white);
+}
+
+form input:focus,
+form select:focus {
+    outline: 2px solid var(--accent);
+    border-color: var(--accent);
+}
+
+form button {
+    width: 100%;
+
+    background-color: var(--accent);
+    color: var(--primary);
+
+    padding: 13px;
+
+    border: none;
+    border-radius: 6px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+form button:hover {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+
+/* =========================================
+   13. BOOKING SUMMARY CARD
+========================================= */
+
+.summary-card {
+    background-color: var(--primary);
+    color: var(--white);
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+.summary-card h3 {
+    color: var(--accent);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.summary-card p {
+    margin: 15px 0;
+}
+
+.summary-card hr {
+    border: none;
+    border-top: 1px solid #63718a;
+    margin: 20px 0;
+}
+
+
+/* =========================================
+   14. MY BOOKINGS SECTION
+========================================= */
+
+.empty-message {
+    text-align: center;
+
+    padding: 20px;
+
+    color: #777777;
+    font-style: italic;
+}
+
+
+/* =========================================
+   15. GUIDELINES SECTION
+========================================= */
+
+.guidelines-container {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.guideline-card {
+    background-color: #f0f3f8;
+
+    padding: 25px;
+
+    border-left: 5px solid var(--accent);
+    border-radius: 8px;
+
+    transition: transform 0.3s;
+}
+
+.guideline-card:hover {
+    transform: translateY(-5px);
+}
+
+.guideline-card h3 {
+    color: var(--primary);
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+
+/* =========================================
+   16. FOOTER
+========================================= */
+
+footer {
+    background-color: var(--primary);
+    color: var(--white);
+
+    text-align: center;
+
+    padding: 25px;
+
+    margin-top: 35px;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+/* =========================================
+   17. RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 768px) {
+
+    /* Navigation */
+    header nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px;
+    }
+
+    nav h1 {
+        font-size: 22px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    /* Hero */
+    #home {
+        margin-top: 105px;
+        padding: 65px 15px;
+    }
+
+    #home h2 {
+        font-size: 27px;
+    }
+
+    /* Sections */
+    .content-section {
+        margin: 20px 12px;
+        padding: 22px;
+    }
+
+    /* Booking */
+    .booking-layout {
+        grid-template-columns: 1fr;
+    }
+
+    /* Guidelines */
+    .guidelines-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Filter */
+    .filter-box {
+        flex-wrap: wrap;
+    }
+
+}
+
+
+/* =========================================
+   18. SMALL MOBILE SCREENS
+========================================= */
+
+@media (max-width: 480px) {
+
+    .nav-links {
+        gap: 8px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    #home h2 {
+        font-size: 23px;
+    }
+
+    .content-section {
+        padding: 18px;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    .btn {
+        padding: 10px 18px;
+    }
+
+}
