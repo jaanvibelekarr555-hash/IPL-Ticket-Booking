@@ -7,14 +7,11 @@
     <title>Book IPL Tickets - IPL 2026</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- Navigation Bar -->
     <header>
         <nav class="navbar">
             <div class="logo">IPL <span>2026</span></div>
-
             <ul class="nav-links">
                 <li><a href="index.html#home">Home</a></li>
                 <li><a href="index.html#about">About IPL</a></li>
@@ -25,68 +22,37 @@
         </nav>
     </header>
 
-    <!-- Booking Form Section -->
     <main class="booking-page">
-
         <div class="booking-container">
 
             <h1>Book Your IPL Tickets</h1>
-
-            <p class="intro">
-                Fill in the details below to reserve your seats.
-            </p>
+            <p class="intro">Fill in the details below to reserve your seats.</p>
 
             <form id="booking-form" action="#" method="get">
 
-                <!-- Name -->
                 <div class="form-group">
                     <label for="name">Full Name</label>
-
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
+                    <input type="text" id="name" name="name"
                         placeholder="Enter your full name"
-                        minlength="3"
-                        maxlength="40"
-                        required
-                    >
+                        minlength="3" maxlength="40" required>
                 </div>
 
-                <!-- Email -->
                 <div class="form-group">
                     <label for="email">Email Address</label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="example@gmail.com"
-                        required
-                    >
+                    <input type="email" id="email" name="email"
+                        placeholder="example@gmail.com" required>
                 </div>
 
-                <!-- Phone -->
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-
-                    <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
+                    <input type="tel" id="phone" name="phone"
                         placeholder="Enter 10 digit phone number"
-                        pattern="[0-9]{10}"
-                        minlength="10"
-                        maxlength="10"
-                        title="Please enter exactly 10 digits"
-                        required
-                    >
+                        pattern="[0-9]{10}" minlength="10" maxlength="10"
+                        title="Please enter exactly 10 digits" required>
                 </div>
 
-                <!-- Match Selection -->
                 <div class="form-group">
                     <label for="match">Select Match</label>
-
                     <select id="match" name="match" required>
                         <option value="">-- Select a Match --</option>
                         <option value="RCB vs CSK">RCB vs CSK</option>
@@ -97,10 +63,8 @@
                     </select>
                 </div>
 
-                <!-- Stand Selection -->
                 <div class="form-group">
-                    <label for="stand">Select Stand</label>
-
+                    <label for="stand">Select Stand Category</label>
                     <select id="stand" name="stand" required>
                         <option value="">-- Select a Stand --</option>
                         <option value="General">General Stand</option>
@@ -109,59 +73,35 @@
                     </select>
                 </div>
 
-                <!-- Ticket Quantity -->
                 <div class="form-group">
                     <label for="quantity">Number of Tickets</label>
-
-                    <input
-                        type="number"
-                        id="quantity"
-                        name="quantity"
-                        min="1"
-                        max="10"
-                        placeholder="Choose between 1 and 10"
-                        required
-                    >
+                    <input type="number" id="quantity" name="quantity"
+                        min="1" max="10" value="1" required>
                 </div>
 
-                <!-- Seating Preference -->
                 <div class="preference-group">
-
                     <p>Preferred Seating Area</p>
 
                     <label>
-                        <input
-                            type="radio"
-                            name="preference"
-                            value="Near Boundary"
-                        >
+                        <input type="radio" name="preference"
+                            value="Near Boundary">
                         Near Boundary
                     </label>
 
                     <label>
-                        <input
-                            type="radio"
-                            name="preference"
-                            value="Near Pavilion"
-                        >
+                        <input type="radio" name="preference"
+                            value="Near Pavilion">
                         Near Pavilion
                     </label>
 
                     <label>
-                        <input
-                            type="radio"
-                            name="preference"
-                            value="No Preference"
-                            checked
-                        >
+                        <input type="radio" name="preference"
+                            value="No Preference" checked>
                         No Preference
                     </label>
-
                 </div>
 
-                <!-- Form Buttons -->
                 <div class="form-buttons">
-
                     <button type="submit" class="submit-btn">
                         Submit Booking
                     </button>
@@ -169,21 +109,46 @@
                     <button type="reset" class="reset-btn">
                         Reset Form
                     </button>
-
                 </div>
 
             </form>
 
-            <a href="index.html" class="back-link">
-                ← Back to Homepage
-            </a>
+            <!-- ACTIVITY 7: BOOKING SUMMARY CARD -->
+
+            <div class="summary-card">
+                <h2>Booking Summary</h2>
+
+                <div class="summary-row">
+                    <span>Selected Match:</span>
+                    <strong id="summary-match">Not selected</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Stand Category:</span>
+                    <strong id="summary-stand">Not selected</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Ticket Quantity:</span>
+                    <strong id="summary-quantity">1</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Price per Ticket:</span>
+                    <strong id="summary-price">₹0</strong>
+                </div>
+
+                <div class="summary-total">
+                    <span>Total Price:</span>
+                    <strong id="summary-total">₹0</strong>
+                </div>
+            </div>
+
+            <a href="index.html" class="back-link">← Back to Homepage</a>
 
         </div>
-
     </main>
 
-    <!-- JavaScript -->
     <script src="app.js"></script>
-
 </body>
 </html>

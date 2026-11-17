@@ -455,3 +455,50 @@ footer p {
         text-align: center;
     }
 }
+
+/* ACTIVITY 7: BOOKING SUMMARY CARD */
+
+.summary-card {
+    background-color: #f4f6fb;
+    border: 1px solid #dce1eb;
+    border-left: 5px solid #e8b42d;
+    padding: 25px;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+.summary-card h2 {
+    color: #101b35;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.summary-row strong {
+    color: #101b35;
+    text-align: right;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 18px;
+    padding: 15px;
+    background-color: #101b35;
+    color: white;
+    border-radius: 7px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.summary-total strong {
+    color: #f6c445;
+}
