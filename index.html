@@ -9,10 +9,20 @@
 </head>
 <body>
 
-    <header>
+    <!-- Navigation -->
+    <header class="site-header">
         <nav class="navbar">
-            <div class="logo">IPL <span>2026</span></div>
-            <ul class="nav-links">
+            <a href="#home" class="logo">IPL <span>2026</span></a>
+
+            <button class="menu-toggle" id="menu-toggle"
+                aria-label="Toggle navigation" aria-expanded="false"
+                aria-controls="nav-links">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About IPL</a></li>
                 <li><a href="#matches">Matches</a></li>
@@ -22,19 +32,24 @@
         </nav>
     </header>
 
+    <!-- Hero -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Experience the Excitement of IPL 2026</h1>
-            <p>Get ready for thrilling cricket action and unforgettable moments. Book your tickets now!</p>
+            <p>
+                Get ready for thrilling cricket action, unforgettable moments
+                and exciting matches. Book your tickets now!
+            </p>
             <a href="booking.html#booking-form" class="btn">Book Your Tickets</a>
         </div>
     </section>
 
+    <!-- About IPL -->
     <section class="section" id="about">
         <h2>About IPL 2026</h2>
         <p class="section-description">
-            The Indian Premier League brings together international cricket stars
-            and talented Indian players for exciting T20 cricket.
+            The Indian Premier League brings together international cricket
+            stars and talented Indian players for exciting T20 cricket.
         </p>
 
         <div class="about-cards">
@@ -55,73 +70,117 @@
         </div>
     </section>
 
+    <!-- Match Schedule -->
     <section class="section schedule-section" id="matches">
         <h2>Match Schedule</h2>
-        <p class="section-description">Explore the match schedule and book your tickets.</p>
+        <p class="section-description">
+            Filter matches by team or change the way you view the schedule.
+        </p>
 
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Match No.</th>
-                        <th>Teams</th>
-                        <th>Date</th>
-                        <th>Venue</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
+        <!-- Filter and View Controls -->
+        <div class="match-controls">
 
-                <tbody>
-                    <tr>
-                        <td>01</td>
-                        <td>RCB vs CSK</td>
-                        <td>01 May 2026</td>
-                        <td>Bengaluru</td>
-                        <td><a href="booking.html#booking-form" class="book-btn">Book</a></td>
-                    </tr>
+            <div class="filter-control">
+                <label for="team-filter">Filter by Team:</label>
+                <select id="team-filter">
+                    <option value="all">All Teams</option>
+                    <option value="RCB">Royal Challengers Bengaluru</option>
+                    <option value="CSK">Chennai Super Kings</option>
+                    <option value="MI">Mumbai Indians</option>
+                    <option value="KKR">Kolkata Knight Riders</option>
+                    <option value="SRH">Sunrisers Hyderabad</option>
+                    <option value="RR">Rajasthan Royals</option>
+                    <option value="GT">Gujarat Titans</option>
+                    <option value="DC">Delhi Capitals</option>
+                    <option value="PBKS">Punjab Kings</option>
+                    <option value="LSG">Lucknow Super Giants</option>
+                </select>
+            </div>
 
-                    <tr>
-                        <td>02</td>
-                        <td>MI vs KKR</td>
-                        <td>03 May 2026</td>
-                        <td>Mumbai</td>
-                        <td><a href="booking.html#booking-form" class="book-btn">Book</a></td>
-                    </tr>
+            <div class="view-controls">
+                <button type="button" id="grid-view" class="view-btn active">
+                    Grid View
+                </button>
+                <button type="button" id="list-view" class="view-btn">
+                    List View
+                </button>
+            </div>
 
-                    <tr>
-                        <td>03</td>
-                        <td>SRH vs RR</td>
-                        <td>05 May 2026</td>
-                        <td>Hyderabad</td>
-                        <td><a href="booking.html#booking-form" class="book-btn">Book</a></td>
-                    </tr>
-
-                    <tr>
-                        <td>04</td>
-                        <td>GT vs DC</td>
-                        <td>07 May 2026</td>
-                        <td>Ahmedabad</td>
-                        <td><a href="booking.html#booking-form" class="book-btn">Book</a></td>
-                    </tr>
-
-                    <tr>
-                        <td>05</td>
-                        <td>PBKS vs LSG</td>
-                        <td>09 May 2026</td>
-                        <td>Chandigarh</td>
-                        <td><a href="booking.html#booking-form" class="book-btn">Book</a></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
+
+        <!-- Match Cards -->
+        <div class="match-grid" id="match-container">
+
+            <article class="match-card" data-teams="RCB CSK">
+                <div class="match-card-header">
+                    <span class="match-number">MATCH 01</span>
+                    <span class="match-tag">IPL 2026</span>
+                </div>
+                <h3>RCB vs CSK</h3>
+                <p><strong>Date:</strong> 01 May 2026</p>
+                <p><strong>Venue:</strong> Bengaluru</p>
+                <a href="booking.html#booking-form" class="book-btn">Book Tickets</a>
+            </article>
+
+            <article class="match-card" data-teams="MI KKR">
+                <div class="match-card-header">
+                    <span class="match-number">MATCH 02</span>
+                    <span class="match-tag">IPL 2026</span>
+                </div>
+                <h3>MI vs KKR</h3>
+                <p><strong>Date:</strong> 03 May 2026</p>
+                <p><strong>Venue:</strong> Mumbai</p>
+                <a href="booking.html#booking-form" class="book-btn">Book Tickets</a>
+            </article>
+
+            <article class="match-card" data-teams="SRH RR">
+                <div class="match-card-header">
+                    <span class="match-number">MATCH 03</span>
+                    <span class="match-tag">IPL 2026</span>
+                </div>
+                <h3>SRH vs RR</h3>
+                <p><strong>Date:</strong> 05 May 2026</p>
+                <p><strong>Venue:</strong> Hyderabad</p>
+                <a href="booking.html#booking-form" class="book-btn">Book Tickets</a>
+            </article>
+
+            <article class="match-card" data-teams="GT DC">
+                <div class="match-card-header">
+                    <span class="match-number">MATCH 04</span>
+                    <span class="match-tag">IPL 2026</span>
+                </div>
+                <h3>GT vs DC</h3>
+                <p><strong>Date:</strong> 07 May 2026</p>
+                <p><strong>Venue:</strong> Ahmedabad</p>
+                <a href="booking.html#booking-form" class="book-btn">Book Tickets</a>
+            </article>
+
+            <article class="match-card" data-teams="PBKS LSG">
+                <div class="match-card-header">
+                    <span class="match-number">MATCH 05</span>
+                    <span class="match-tag">IPL 2026</span>
+                </div>
+                <h3>PBKS vs LSG</h3>
+                <p><strong>Date:</strong> 09 May 2026</p>
+                <p><strong>Venue:</strong> Chandigarh</p>
+                <a href="booking.html#booking-form" class="book-btn">Book Tickets</a>
+            </article>
+
+        </div>
+
+        <p id="no-matches" class="no-matches" hidden>
+            No matches found for this team.
+        </p>
     </section>
 
+    <!-- Booking Banner -->
     <section class="booking-banner">
         <h2>Ready to Experience Live Cricket?</h2>
         <p>Choose your match and reserve your seats today.</p>
         <a href="booking.html#booking-form" class="btn">Book Now</a>
     </section>
 
+    <!-- Guidelines -->
     <section class="section" id="guidelines">
         <h2>Booking Guidelines</h2>
 
@@ -143,6 +202,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>© 2026 IPL Ticket Booking. All Rights Reserved.</p>
         <p>Designed for educational purposes.</p>

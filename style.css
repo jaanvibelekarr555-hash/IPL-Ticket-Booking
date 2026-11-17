@@ -1,9 +1,15 @@
 
-/* GENERAL STYLING */
+/* =================================
+   GENERAL STYLING
+================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
@@ -14,16 +20,15 @@ body {
     line-height: 1.6;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 a {
     text-decoration: none;
 }
 
-/* NAVIGATION BAR */
-header {
+/* =================================
+   NAVIGATION - FLEXBOX
+================================= */
+
+.site-header {
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -37,7 +42,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .logo {
@@ -53,8 +58,8 @@ header {
 .nav-links {
     list-style: none;
     display: flex;
+    align-items: center;
     gap: 25px;
-    flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -67,7 +72,27 @@ header {
     color: #f6c445;
 }
 
-/* HERO SECTION */
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 27px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    border-radius: 3px;
+}
+
+/* =================================
+   HERO SECTION
+================================= */
+
 .hero {
     min-height: 480px;
     background: linear-gradient(120deg, #101b35, #243e70);
@@ -110,7 +135,10 @@ header {
     transform: translateY(-2px);
 }
 
-/* COMMON SECTION */
+/* =================================
+   COMMON SECTION
+================================= */
+
 .section {
     padding: 65px 8%;
     text-align: center;
@@ -128,7 +156,10 @@ header {
     color: #666;
 }
 
-/* ABOUT CARDS */
+/* =================================
+   ABOUT CARDS - CSS GRID
+================================= */
+
 .about-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -141,7 +172,7 @@ header {
     padding: 30px 20px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: 0.3s;
+    transition: transform 0.3s;
 }
 
 .card:hover {
@@ -153,56 +184,170 @@ header {
     margin-bottom: 12px;
 }
 
-/* MATCH SCHEDULE */
+/* =================================
+   MATCH FILTER AND VIEW CONTROLS
+================================= */
+
 .schedule-section {
     background-color: #eef1f7;
 }
 
-.table-container {
-    overflow-x: auto;
+.match-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+.filter-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.filter-control label {
+    font-weight: bold;
+    color: #101b35;
+}
+
+.filter-control select {
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
     background-color: white;
-    margin-top: 25px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    font-size: 14px;
 }
 
-th, td {
-    padding: 16px;
-    border: 1px solid #ddd;
-    text-align: center;
+.view-controls {
+    display: flex;
+    gap: 10px;
 }
 
-th {
+.view-btn {
+    padding: 10px 17px;
+    border: 1px solid #101b35;
+    border-radius: 6px;
+    background-color: white;
+    color: #101b35;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.view-btn.active,
+.view-btn:hover {
     background-color: #101b35;
     color: white;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #f4f5f8;
+/* =================================
+   MATCH CARDS - CSS GRID
+================================= */
+
+.match-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    text-align: left;
 }
 
-tbody tr:hover {
-    background-color: #fff5d6;
+.match-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+    border-top: 4px solid #e8b42d;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.match-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
+}
+
+.match-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.match-number {
+    color: #243e70;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.match-tag {
+    background-color: #fff2c9;
+    color: #805b00;
+    padding: 4px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.match-card h3 {
+    color: #101b35;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.match-card p {
+    margin: 8px 0;
+    color: #555;
 }
 
 .book-btn {
     display: inline-block;
     background-color: #e8b42d;
     color: #101b35;
-    padding: 7px 16px;
+    padding: 9px 16px;
     border-radius: 5px;
     font-weight: bold;
+    margin-top: 15px;
 }
 
 .book-btn:hover {
     background-color: #d49b0b;
 }
 
-/* BOOKING BANNER */
+/* LIST VIEW */
+
+.match-grid.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.match-grid.list-view .match-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    align-items: center;
+    gap: 15px;
+}
+
+.match-grid.list-view .match-card-header {
+    margin-bottom: 0;
+}
+
+.match-grid.list-view .match-card h3,
+.match-grid.list-view .match-card p,
+.match-grid.list-view .book-btn {
+    margin: 0;
+}
+
+.no-matches {
+    color: #b42318;
+    font-weight: bold;
+    padding: 25px;
+}
+
+/* =================================
+   BOOKING BANNER
+================================= */
+
 .booking-banner {
     background-color: #101b35;
     color: white;
@@ -220,7 +365,10 @@ tbody tr:hover {
     color: #dce2ef;
 }
 
-/* GUIDELINES */
+/* =================================
+   GUIDELINES - CSS GRID
+================================= */
+
 .guideline-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -242,7 +390,10 @@ tbody tr:hover {
     margin-bottom: 10px;
 }
 
-/* FOOTER */
+/* =================================
+   FOOTER
+================================= */
+
 footer {
     background-color: #0b1428;
     color: white;
@@ -255,7 +406,10 @@ footer p {
     margin: 4px;
 }
 
-/* BOOKING PAGE */
+/* =================================
+   BOOKING PAGE
+================================= */
+
 .booking-page {
     min-height: 100vh;
     padding: 45px 20px;
@@ -375,88 +529,9 @@ footer p {
     font-weight: bold;
 }
 
-.back-link:hover {
-    text-decoration: underline;
-}
-
-/* TOAST NOTIFICATION - ACTIVITY 5 */
-.toast {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background-color: #14213d;
-    color: white;
-    padding: 15px 22px;
-    border-radius: 8px;
-    font-size: 15px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
-    z-index: 9999;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.toast.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-/* RESPONSIVE DESIGN */
-@media (max-width: 768px) {
-
-    .navbar {
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .nav-links {
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .about-cards,
-    .guideline-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .section {
-        padding: 45px 5%;
-    }
-
-    .booking-container {
-        padding: 25px 18px;
-    }
-}
-
-@media (max-width: 480px) {
-
-    .hero h1 {
-        font-size: 27px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    .form-buttons {
-        flex-direction: column;
-    }
-
-    .toast {
-        left: 15px;
-        right: 15px;
-        bottom: 15px;
-        text-align: center;
-    }
-}
-
-/* ACTIVITY 7: BOOKING SUMMARY CARD */
+/* =================================
+   ACTIVITY 7: BOOKING SUMMARY
+================================= */
 
 .summary-card {
     background-color: #f4f6fb;
@@ -501,4 +576,163 @@ footer p {
 
 .summary-total strong {
     color: #f6c445;
+}
+
+/* =================================
+   ACTIVITY 5: TOAST NOTIFICATION
+================================= */
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #14213d;
+    color: white;
+    padding: 15px 22px;
+    border-radius: 8px;
+    font-size: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* =================================
+   RESPONSIVE DESIGN - TABLETS
+================================= */
+
+@media (max-width: 900px) {
+
+    .match-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-cards,
+    .guideline-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .navbar {
+        padding: 15px 5%;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+}
+
+/* =================================
+   RESPONSIVE DESIGN - MOBILE
+================================= */
+
+@media (max-width: 650px) {
+
+    .navbar {
+        flex-wrap: wrap;
+        padding: 15px 5%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 0;
+        padding-top: 10px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 12px 5px;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .hero {
+        min-height: 400px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 45px 5%;
+    }
+
+    .about-cards,
+    .guideline-cards,
+    .match-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .match-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-control {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-control select {
+        width: 100%;
+    }
+
+    .view-controls {
+        width: 100%;
+    }
+
+    .view-btn {
+        flex: 1;
+    }
+
+    .match-grid.list-view .match-card {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .match-grid.list-view .match-card-header {
+        margin-bottom: 10px;
+    }
+
+    .booking-container {
+        padding: 25px 18px;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+
+    .toast {
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        text-align: center;
+    }
 }

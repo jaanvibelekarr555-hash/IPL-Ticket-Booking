@@ -1,7 +1,7 @@
 
-// =====================================
-// ACTIVITY 5: REUSABLE TOAST FUNCTION
-// =====================================
+// ==========================================
+// ACTIVITY 5: REUSABLE TOAST NOTIFICATION
+// ==========================================
 
 function showToast(message) {
     let toast = document.getElementById("toast");
@@ -24,13 +24,15 @@ function showToast(message) {
 }
 
 
-// =====================================
+// ==========================================
 // DOM CONTENT LOADED
-// =====================================
+// ==========================================
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    // ======================================
     // ACTIVITY 5: BOOK BUTTON INTERACTION
+    // ======================================
 
     const bookLinks = document.querySelectorAll(
         'a[href*="booking.html"]'
@@ -40,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         link.addEventListener("click", function (event) {
 
+            // Allow normal navigation when already on booking page
             if (window.location.pathname.endsWith("booking.html")) {
                 return;
             }
@@ -58,7 +61,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+    // ======================================
     // ACTIVITY 5: SMOOTH SCROLLING
+    // ======================================
 
     if (window.location.hash === "#booking-form") {
 
@@ -79,9 +84,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    // =====================================
-    // ACTIVITY 7: DOM SELECTORS
-    // =====================================
+    // ======================================
+    // ACTIVITY 7: LIVE BOOKING SUMMARY
+    // ======================================
 
     const matchSelect = document.getElementById("match");
     const standSelect = document.querySelector("#stand");
@@ -93,20 +98,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const summaryPrice = document.getElementById("summary-price");
     const summaryTotal = document.getElementById("summary-total");
 
-
-    // Ticket prices
-
+    // Ticket prices according to stand category
     const ticketPrices = {
         General: 500,
         Premium: 1500,
         VIP: 3000
     };
 
-
-    // =====================================
-    // ACTIVITY 7: UPDATE BOOKING SUMMARY
-    // =====================================
-
+    // Check whether all required booking elements exist
     if (
         matchSelect &&
         standSelect &&
@@ -118,13 +117,13 @@ document.addEventListener("DOMContentLoaded", function () {
         summaryTotal
     ) {
 
-        function updateBookingSummary() {
+        function updateBookingSummary(showNotification = true) {
 
             const selectedMatch = matchSelect.value;
             const selectedStand = standSelect.value;
-
             const enteredQuantity = Number(quantityInput.value);
 
+            // Validate ticket quantity
             const validQuantity =
                 Number.isInteger(enteredQuantity) &&
                 enteredQuantity >= 1 &&
@@ -132,59 +131,45 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const quantity = validQuantity ? enteredQuantity : 0;
 
+            // Calculate ticket price and total amount
             const price = ticketPrices[selectedStand] || 0;
-
             const total = price * quantity;
 
-
-            // Update selected match
-
+            // Update booking summary
             summaryMatch.textContent =
                 selectedMatch || "Not selected";
-
-
-            // Update stand category
 
             summaryStand.textContent =
                 selectedStand || "Not selected";
 
-
-            // Update quantity
-
             summaryQuantity.textContent =
                 quantityInput.value || "0";
-
-
-            // Update price per ticket
 
             summaryPrice.textContent =
                 "₹" + price.toLocaleString("en-IN");
 
-
-            // Update total price
-
             summaryTotal.textContent =
                 "₹" + total.toLocaleString("en-IN");
 
-
-            // Show toast notification
-
-            showToast("Booking summary updated!");
+            // Show notification only after user interaction
+            if (showNotification) {
+                showToast("Booking summary updated!");
+            }
         }
 
-
-        // Change event listeners
-
+        // Update summary when match changes
         matchSelect.addEventListener(
             "change",
             updateBookingSummary
         );
 
+        // Update summary when stand category changes
         standSelect.addEventListener(
             "change",
             updateBookingSummary
         );
 
+        // Update summary when quantity changes
         quantityInput.addEventListener(
             "change",
             updateBookingSummary
@@ -195,10 +180,137 @@ document.addEventListener("DOMContentLoaded", function () {
             updateBookingSummary
         );
 
+        // Initial summary update without notification
+        updateBookingSummary(false);
+    }
 
-        // Display initial summary
 
-        updateBookingSummary();
+    // ======================================
+    // ACTIVITY 8: HAMBURGER MENU
+    // ======================================
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    if (menuToggle && navLinks) {
+
+        menuToggle.addEventListener("click", function () {
+
+            const isOpen = navLinks.classList.toggle("open");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+            showToast(
+                isOpen
+                    ? "Navigation menu opened"
+                    : "Navigation menu closed"
+            );
+        });
+
+        // Close mobile menu after selecting a navigation link
+        const navigationItems = navLinks.querySelectorAll("a");
+
+        navigationItems.forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                navLinks.classList.remove("open");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            });
+        });
+    }
+
+
+    // ======================================
+    // ACTIVITY 8: TEAM FILTER
+    // ======================================
+
+    const teamFilter = document.getElementById("team-filter");
+    const matchContainer = document.getElementById("match-container");
+    const noMatches = document.getElementById("no-matches");
+
+    if (teamFilter && matchContainer) {
+
+        const matchCards = matchContainer.querySelectorAll(".match-card");
+
+        teamFilter.addEventListener("change", function () {
+
+            const selectedTeam = teamFilter.value;
+            let visibleCount = 0;
+
+            matchCards.forEach(function (card) {
+
+                const teams = card.dataset.teams
+                    ? card.dataset.teams.split(" ")
+                    : [];
+
+                const shouldDisplay =
+                    selectedTeam === "all" ||
+                    teams.includes(selectedTeam);
+
+                card.hidden = !shouldDisplay;
+
+                if (shouldDisplay) {
+                    visibleCount++;
+                }
+            });
+
+            // Display message when no matches are available
+            if (noMatches) {
+                noMatches.hidden = visibleCount !== 0;
+            }
+
+            showToast(
+                selectedTeam === "all"
+                    ? "Showing all matches"
+                    : "Showing " + selectedTeam + " matches"
+            );
+        });
+    }
+
+
+    // ======================================
+    // ACTIVITY 8: GRID AND LIST VIEW
+    // ======================================
+
+    const gridViewButton = document.getElementById("grid-view");
+    const listViewButton = document.getElementById("list-view");
+
+    if (
+        matchContainer &&
+        gridViewButton &&
+        listViewButton
+    ) {
+
+        // GRID VIEW
+        gridViewButton.addEventListener("click", function () {
+
+            matchContainer.classList.remove("list-view");
+
+            gridViewButton.classList.add("active");
+            listViewButton.classList.remove("active");
+
+            showToast("Grid view selected");
+        });
+
+        // LIST VIEW
+        listViewButton.addEventListener("click", function () {
+
+            matchContainer.classList.add("list-view");
+
+            listViewButton.classList.add("active");
+            gridViewButton.classList.remove("active");
+
+            showToast("List view selected");
+        });
     }
 
 });
