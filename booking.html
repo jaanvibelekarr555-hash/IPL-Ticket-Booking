@@ -1,13 +1,10 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>IPL Ticket Booking Form</title>
-
+    <title>Book IPL Tickets - IPL 2026</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,132 +12,122 @@
 
     <!-- Navigation Bar -->
     <header>
-        <nav>
+        <nav class="navbar">
+            <div class="logo">IPL <span>2026</span></div>
 
-            <h1>IPL 2026</h1>
-
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="index.html#matches">Matches</a>
-                <a href="booking.html">Book Ticket</a>
-                <a href="index.html#mybookings">My Bookings</a>
-                <a href="index.html#guidelines">Guidelines</a>
-            </div>
-
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About IPL</a></li>
+                <li><a href="index.html#matches">Matches</a></li>
+                <li><a href="#booking-form">Book Tickets</a></li>
+                <li><a href="index.html#guidelines">Guidelines</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main>
+    <!-- Booking Form Section -->
+    <main class="booking-page">
 
-        <!-- Booking Form Section -->
-        <section class="content-section booking-page">
+        <div class="booking-container">
 
-            <h2>IPL Ticket Booking Form</h2>
+            <h1>Book Your IPL Tickets</h1>
 
-            <p>
-                Enter your personal details and select your
-                preferred IPL match to book your tickets.
+            <p class="intro">
+                Fill in the details below to reserve your seats.
             </p>
 
-            <form action="#" method="get">
+            <form id="booking-form" action="#" method="get">
 
-                <!-- Personal Details -->
-                <h3>Personal Details</h3>
+                <!-- Name -->
+                <div class="form-group">
+                    <label for="name">Full Name</label>
 
-                <label for="name">Full Name:</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        minlength="3"
+                        maxlength="40"
+                        required
+                    >
+                </div>
 
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Enter your full name"
-                    minlength="3"
-                    maxlength="40"
-                    required
-                >
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email Address</label>
 
-                <label for="email">Email Address:</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="example@gmail.com"
+                        required
+                    >
+                </div>
 
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Enter your email"
-                    required
-                >
+                <!-- Phone -->
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
 
-                <label for="phone">Phone Number:</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="Enter 10 digit phone number"
+                        pattern="[0-9]{10}"
+                        minlength="10"
+                        maxlength="10"
+                        title="Please enter exactly 10 digits"
+                        required
+                    >
+                </div>
 
-                <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder="Enter 10 digit phone number"
-                    pattern="[0-9]{10}"
-                    minlength="10"
-                    maxlength="10"
-                    title="Please enter exactly 10 digits"
-                    required
-                >
+                <!-- Match Selection -->
+                <div class="form-group">
+                    <label for="match">Select Match</label>
 
-                <!-- Match Details -->
-                <h3>Match Details</h3>
+                    <select id="match" name="match" required>
+                        <option value="">-- Select a Match --</option>
+                        <option value="RCB vs CSK">RCB vs CSK</option>
+                        <option value="MI vs KKR">MI vs KKR</option>
+                        <option value="SRH vs RR">SRH vs RR</option>
+                        <option value="GT vs DC">GT vs DC</option>
+                        <option value="PBKS vs LSG">PBKS vs LSG</option>
+                    </select>
+                </div>
 
-                <label for="match">Select Match:</label>
+                <!-- Stand Selection -->
+                <div class="form-group">
+                    <label for="stand">Select Stand</label>
 
-                <select id="match" name="match" required>
+                    <select id="stand" name="stand" required>
+                        <option value="">-- Select a Stand --</option>
+                        <option value="General">General Stand</option>
+                        <option value="Premium">Premium Stand</option>
+                        <option value="VIP">VIP Stand</option>
+                    </select>
+                </div>
 
-                    <option value="">Choose Match</option>
+                <!-- Ticket Quantity -->
+                <div class="form-group">
+                    <label for="quantity">Number of Tickets</label>
 
-                    <option value="RCB vs CSK">
-                        RCB vs CSK
-                    </option>
+                    <input
+                        type="number"
+                        id="quantity"
+                        name="quantity"
+                        min="1"
+                        max="10"
+                        placeholder="Choose between 1 and 10"
+                        required
+                    >
+                </div>
 
-                    <option value="MI vs KKR">
-                        MI vs KKR
-                    </option>
+                <!-- Seating Preference -->
+                <div class="preference-group">
 
-                    <option value="CSK vs SRH">
-                        CSK vs SRH
-                    </option>
-
-                    <option value="KKR vs RCB">
-                        KKR vs RCB
-                    </option>
-
-                </select>
-
-                <label for="stand">Stand Category:</label>
-
-                <select id="stand" name="stand" required>
-
-                    <option value="">Choose Stand</option>
-
-                    <option value="General">General</option>
-
-                    <option value="Premium">Premium</option>
-
-                    <option value="VIP">VIP</option>
-
-                </select>
-
-                <label for="quantity">Number of Tickets:</label>
-
-                <input
-                    type="number"
-                    id="quantity"
-                    name="quantity"
-                    min="1"
-                    max="10"
-                    required
-                >
-
-                <!-- Additional Preferences -->
-                <h3>Additional Preferences</h3>
-
-                <fieldset class="preferences">
-
-                    <legend>Preferred Seating:</legend>
+                    <p>Preferred Seating Area</p>
 
                     <label>
                         <input
@@ -170,12 +157,12 @@
                         No Preference
                     </label>
 
-                </fieldset>
+                </div>
 
                 <!-- Form Buttons -->
-                <div class="form-actions">
+                <div class="form-buttons">
 
-                    <button type="submit">
+                    <button type="submit" class="submit-btn">
                         Submit Booking
                     </button>
 
@@ -187,20 +174,16 @@
 
             </form>
 
-        </section>
+            <a href="index.html" class="back-link">
+                ← Back to Homepage
+            </a>
+
+        </div>
 
     </main>
 
-    <!-- Footer -->
-    <footer>
-
-        <p>
-            &copy; 2026 IPL Ticket Booking.
-            All Rights Reserved.
-        </p>
-
-    </footer>
+    <!-- JavaScript -->
+    <script src="app.js"></script>
 
 </body>
-
 </html>

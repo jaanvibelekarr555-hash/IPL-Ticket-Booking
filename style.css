@@ -1,578 +1,457 @@
 
-/* =====================================
-   1. CSS VARIABLES
-===================================== */
-
-:root {
-    --primary: #101d3a;
-    --secondary: #244b83;
-    --accent: #f5b51b;
-    --background: #f4f6fa;
-    --text: #222222;
-    --white: #ffffff;
-    --border: #dddddd;
-}
-
-
-/* =====================================
-   2. GENERAL STYLING
-===================================== */
-
+/* GENERAL STYLING */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f6fa;
+    color: #222;
+    line-height: 1.6;
 }
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 85px;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: var(--background);
-    color: var(--text);
-    line-height: 1.6;
+a {
+    text-decoration: none;
 }
 
-
-/* =====================================
-   3. NAVIGATION BAR
-===================================== */
-
-header nav {
-    position: fixed;
+/* NAVIGATION BAR */
+header {
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 65px;
-    padding: 12px 5%;
+    z-index: 1000;
+}
 
-    background-color: var(--primary);
-    color: var(--white);
-
+.navbar {
+    background-color: #101b35;
+    color: white;
+    min-height: 70px;
+    padding: 15px 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    z-index: 1000;
-
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap;
 }
 
-nav h1 {
-    font-size: 25px;
-    color: var(--accent);
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: #f6c445;
 }
 
 .nav-links {
+    list-style: none;
     display: flex;
     gap: 25px;
+    flex-wrap: wrap;
 }
 
 .nav-links a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
+    color: white;
+    font-size: 15px;
+    transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: var(--accent);
+    color: #f6c445;
 }
 
-
-/* =====================================
-   4. HERO SECTION
-===================================== */
-
-#home {
-    margin-top: 65px;
-
-    background: linear-gradient(
-        135deg,
-        var(--primary),
-        var(--secondary)
-    );
-
-    color: var(--white);
-    text-align: center;
-
-    padding: 100px 20px;
-}
-
-#home h2 {
-    font-size: 38px;
-    color: var(--white);
-    margin-bottom: 15px;
-}
-
-#home p {
-    font-size: 18px;
-    margin-bottom: 25px;
-}
-
-
-/* =====================================
-   5. BUTTONS
-===================================== */
-
-.hero-buttons {
+/* HERO SECTION */
+.hero {
+    min-height: 480px;
+    background: linear-gradient(120deg, #101b35, #243e70);
     display: flex;
+    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
+    text-align: center;
+    color: white;
+    padding: 60px 20px;
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #e4e8f0;
 }
 
 .btn {
     display: inline-block;
-
-    background-color: var(--accent);
-    color: var(--primary);
-
-    padding: 12px 25px;
-
-    text-decoration: none;
-    font-weight: bold;
-
+    background-color: #f6c445;
+    color: #101b35;
+    padding: 13px 28px;
     border-radius: 6px;
-
+    font-weight: bold;
     transition: 0.3s;
 }
 
 .btn:hover {
-    background-color: var(--white);
-    transform: translateY(-3px);
+    background-color: #e6ad20;
+    transform: translateY(-2px);
 }
 
-
-/* =====================================
-   6. COMMON SECTIONS
-===================================== */
-
-.content-section {
-    max-width: 1250px;
-    margin: 30px auto;
-    padding: 35px;
-
-    background-color: var(--white);
-
-    border-radius: 12px;
-
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+/* COMMON SECTION */
+.section {
+    padding: 65px 8%;
+    text-align: center;
 }
 
-.content-section h2 {
-    color: var(--primary);
-    font-size: 27px;
-
-    border-bottom: 3px solid var(--accent);
-
-    padding-bottom: 10px;
-    margin-bottom: 22px;
-}
-
-.content-section h3 {
-    color: var(--primary);
-    margin: 18px 0 10px;
-}
-
-.content-section p {
+.section h2 {
+    font-size: 30px;
+    color: #101b35;
     margin-bottom: 15px;
 }
 
-
-/* =====================================
-   7. ABOUT IPL
-===================================== */
-
-#about ul {
-    padding-left: 25px;
-    margin-bottom: 20px;
+.section-description {
+    max-width: 750px;
+    margin: 0 auto 35px;
+    color: #666;
 }
 
-#about li {
-    padding: 5px 0;
+/* ABOUT CARDS */
+.about-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
 }
 
-
-/* =====================================
-   8. TEAM FILTER
-===================================== */
-
-.filter-box {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 15px;
+.card {
+    background-color: white;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
 }
 
-.filter-box label {
-    font-weight: bold;
+.card:hover {
+    transform: translateY(-5px);
 }
 
-.filter-box select {
-    padding: 10px 15px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    background-color: var(--white);
-    font-size: 15px;
+.card h3 {
+    color: #d69e13;
+    margin-bottom: 12px;
 }
 
-
-/* =====================================
-   9. TABLES
-===================================== */
+/* MATCH SCHEDULE */
+.schedule-section {
+    background-color: #eef1f7;
+}
 
 .table-container {
-    width: 100%;
     overflow-x: auto;
 }
 
 table {
     width: 100%;
-    min-width: 750px;
     border-collapse: collapse;
-    background-color: var(--white);
+    background-color: white;
+    margin-top: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+th, td {
+    padding: 16px;
+    border: 1px solid #ddd;
+    text-align: center;
 }
 
 th {
-    background-color: var(--primary);
-    color: var(--white);
-    padding: 15px 12px;
-    text-align: center;
-}
-
-td {
-    padding: 13px 10px;
-    text-align: center;
-    border: 1px solid var(--border);
+    background-color: #101b35;
+    color: white;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #f0f3f8;
+    background-color: #f4f5f8;
 }
 
 tbody tr:hover {
-    background-color: #fff3d0;
+    background-color: #fff5d6;
 }
-
-
-/* =====================================
-   10. BOOK BUTTON
-===================================== */
 
 .book-btn {
     display: inline-block;
-
-    background-color: var(--accent);
-    color: var(--primary);
-
-    padding: 7px 15px;
+    background-color: #e8b42d;
+    color: #101b35;
+    padding: 7px 16px;
     border-radius: 5px;
-
-    text-decoration: none;
     font-weight: bold;
-
-    transition: 0.3s;
 }
 
 .book-btn:hover {
-    background-color: var(--primary);
-    color: var(--white);
+    background-color: #d49b0b;
 }
 
-
-/* =====================================
-   11. BOOKING FORM
-===================================== */
-
-.booking-page {
-    margin-top: 100px;
-    max-width: 850px;
-}
-
-.booking-page form {
-    background-color: #f8f9fc;
-    padding: 30px;
-
-    border: 1px solid var(--border);
-    border-radius: 12px;
-
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
-}
-
-form h3 {
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-form label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 7px;
-}
-
-form input:not([type="radio"]):not([type="checkbox"]),
-form select {
-    display: block;
-    width: 100%;
-
-    padding: 12px;
-    margin-bottom: 18px;
-
-    border: 1px solid #cccccc;
-    border-radius: 6px;
-
-    font-size: 15px;
-    background-color: var(--white);
-}
-
-form input:focus,
-form select:focus {
-    outline: 2px solid var(--accent);
-    border-color: var(--accent);
-}
-
-
-/* =====================================
-   12. RADIO BUTTONS
-===================================== */
-
-.preferences {
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 20px;
-}
-
-.preferences legend {
-    font-weight: bold;
-    color: var(--primary);
-    padding: 0 8px;
-}
-
-.preferences label {
-    display: block;
-    margin: 10px 0;
-    font-weight: normal;
-}
-
-.preferences input[type="radio"] {
-    width: auto;
-    margin-right: 8px;
-}
-
-
-/* =====================================
-   13. FORM ACTION BUTTONS
-===================================== */
-
-.form-actions {
-    display: flex;
-    gap: 15px;
-}
-
-.form-actions button {
-    flex: 1;
-
-    background-color: var(--accent);
-    color: var(--primary);
-
-    padding: 13px;
-
-    border: none;
-    border-radius: 6px;
-
-    font-size: 16px;
-    font-weight: bold;
-
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.form-actions button:hover {
-    background-color: var(--primary);
-    color: var(--white);
-}
-
-.form-actions .reset-btn {
-    background-color: #dddddd;
-    color: #222222;
-}
-
-.form-actions .reset-btn:hover {
-    background-color: #bbbbbb;
-}
-
-
-/* =====================================
-   14. MY BOOKINGS
-===================================== */
-
-.empty-message {
+/* BOOKING BANNER */
+.booking-banner {
+    background-color: #101b35;
+    color: white;
     text-align: center;
-    padding: 20px;
-    color: #777777;
-    font-style: italic;
+    padding: 55px 20px;
 }
 
+.booking-banner h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
 
-/* =====================================
-   15. GUIDELINES
-===================================== */
+.booking-banner p {
+    margin-bottom: 22px;
+    color: #dce2ef;
+}
 
-.guidelines-container {
+/* GUIDELINES */
+.guideline-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 25px;
+    margin-top: 30px;
 }
 
 .guideline-card {
-    background-color: #f0f3f8;
-
+    background-color: white;
     padding: 25px;
-
-    border-left: 5px solid var(--accent);
-    border-radius: 8px;
-
-    transition: 0.3s;
-}
-
-.guideline-card:hover {
-    transform: translateY(-5px);
+    border-left: 5px solid #e8b42d;
+    border-radius: 7px;
+    text-align: left;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
 }
 
 .guideline-card h3 {
-    color: var(--primary);
-    margin-top: 0;
-    margin-bottom: 12px;
+    color: #101b35;
+    margin-bottom: 10px;
 }
 
-
-/* =====================================
-   16. BOOKING SUMMARY CARD
-===================================== */
-
-.summary-card {
-    background-color: var(--primary);
-    color: var(--white);
-
-    padding: 25px;
-    border-radius: 12px;
-
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-}
-
-.summary-card h3 {
-    color: var(--accent);
-}
-
-.summary-card p {
-    margin: 15px 0;
-}
-
-
-/* =====================================
-   17. FOOTER
-===================================== */
-
+/* FOOTER */
 footer {
-    background-color: var(--primary);
-    color: var(--white);
-
+    background-color: #0b1428;
+    color: white;
     text-align: center;
-
-    padding: 25px;
-    margin-top: 35px;
+    padding: 22px;
+    font-size: 14px;
 }
 
+footer p {
+    margin: 4px;
+}
 
-/* =====================================
-   18. RESPONSIVE DESIGN
-===================================== */
+/* BOOKING PAGE */
+.booking-page {
+    min-height: 100vh;
+    padding: 45px 20px;
+    background: linear-gradient(135deg, #e9edf5, #f9f9fb);
+}
 
+.booking-container {
+    max-width: 750px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.booking-container h1 {
+    color: #101b35;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.booking-container .intro {
+    color: #666;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #222;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    background-color: white;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #243e70;
+    box-shadow: 0 0 4px rgba(36, 62, 112, 0.3);
+}
+
+.preference-group {
+    margin-bottom: 22px;
+}
+
+.preference-group p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.preference-group label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin: 5px 15px 5px 0;
+}
+
+.preference-group input {
+    accent-color: #243e70;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.submit-btn,
+.reset-btn {
+    flex: 1;
+    border: none;
+    padding: 13px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-btn {
+    background-color: #101b35;
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: #243e70;
+}
+
+.reset-btn {
+    background-color: #e5e5e5;
+    color: #222;
+}
+
+.reset-btn:hover {
+    background-color: #ccc;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    color: #243e70;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* TOAST NOTIFICATION - ACTIVITY 5 */
+.toast {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #14213d;
+    color: white;
+    padding: 15px 22px;
+    border-radius: 8px;
+    font-size: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
 
-    header nav {
-        flex-direction: column;
-        gap: 10px;
-        padding: 12px;
-    }
-
-    nav h1 {
-        font-size: 22px;
+    .navbar {
+        justify-content: center;
+        gap: 15px;
     }
 
     .nav-links {
         justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px;
+        gap: 15px;
     }
 
-    .nav-links a {
-        font-size: 13px;
+    .hero h1 {
+        font-size: 32px;
     }
 
-    #home {
-        margin-top: 105px;
-        padding: 65px 15px;
-    }
-
-    #home h2 {
-        font-size: 27px;
-    }
-
-    .content-section {
-        margin: 20px 12px;
-        padding: 22px;
-    }
-
-    .booking-layout {
+    .about-cards,
+    .guideline-cards {
         grid-template-columns: 1fr;
     }
 
-    .guidelines-container {
-        grid-template-columns: 1fr;
+    .section {
+        padding: 45px 5%;
     }
 
-    .filter-box {
-        flex-wrap: wrap;
-    }
-
-    .booking-page {
-        margin-top: 120px;
-    }
-
-    .form-actions {
-        flex-direction: column;
+    .booking-container {
+        padding: 25px 18px;
     }
 }
 
 @media (max-width: 480px) {
 
-    .nav-links {
-        gap: 8px;
+    .hero h1 {
+        font-size: 27px;
     }
 
-    .nav-links a {
-        font-size: 12px;
+    .hero p {
+        font-size: 16px;
     }
 
-    #home h2 {
-        font-size: 23px;
+    .form-buttons {
+        flex-direction: column;
     }
 
-    .content-section {
-        padding: 18px;
-    }
-
-    .booking-page form {
-        padding: 20px;
-    }
-
-    .btn {
-        padding: 10px 18px;
+    .toast {
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        text-align: center;
     }
 }
