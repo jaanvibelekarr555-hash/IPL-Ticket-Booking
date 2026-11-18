@@ -1,0 +1,201 @@
+
+/* General styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #222;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #101b3f;
+  color: white;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 26px;
+}
+
+.logo span {
+  color: #f5c542;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #f5c542;
+}
+
+/* Hero section */
+.hero {
+  min-height: 320px;
+  background: linear-gradient(120deg, #101b3f, #263f78);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero h1 {
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  margin-bottom: 25px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.hero-button {
+  display: inline-block;
+  background-color: #f5c542;
+  color: #101b3f;
+  padding: 12px 22px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Matches section */
+.matches-section {
+  padding: 45px 7%;
+  text-align: center;
+}
+
+.matches-section h2,
+.about-section h2,
+.guidelines-section h2 {
+  margin-bottom: 25px;
+  color: #101b3f;
+}
+
+#team-filter {
+  padding: 10px 15px;
+  margin: 10px 0 25px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+/* Match cards */
+.match-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.match-card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.match-card:hover {
+  transform: translateY(-5px);
+}
+
+.match-card h3 {
+  color: #101b3f;
+  margin-bottom: 18px;
+}
+
+.match-card p {
+  margin: 10px 0;
+}
+
+.match-card button {
+  margin-top: 12px;
+  background-color: #101b3f;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.match-card button:hover {
+  background-color: #f5c542;
+  color: #101b3f;
+}
+
+/* About section */
+.about-section {
+  background-color: white;
+  padding: 45px 7%;
+  text-align: center;
+  line-height: 1.7;
+}
+
+/* Guidelines section */
+.guidelines-section {
+  padding: 45px 7%;
+  text-align: center;
+}
+
+.guidelines-section p {
+  display: inline-block;
+  background-color: white;
+  padding: 20px;
+  margin: 8px;
+  border-radius: 8px;
+}
+
+/* Footer */
+footer {
+  background-color: #101b3f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+  .match-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .hero h1 {
+    font-size: 27px;
+  }
+
+  .match-container {
+    grid-template-columns: 1fr;
+  }
+}
